@@ -48,7 +48,7 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
     --line-height-big: 1.8;
   
     /** SECTION **/
-    --section-padding: 5rem 0;
+    --section-padding: 5rem 1.5rem;
     --section-header-padding: 0 0 3rem;
     --section-header-align: center;
     --section-title-font-size: var(--font-size-xx-large);
@@ -61,7 +61,7 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
     --section-tagline-font-family: var(--font-family-headings);
     --section-tagline-font-weight: var(--font-weight-bold);
     --section-tagline-margin: 0;
-    --section-body-padding: 2rem 0 4rem;
+    --section-body-padding: 2rem 0 0;
     --section-footer-padding: 3rem 0 0;
     --section-footer-align: center;
   
@@ -171,8 +171,8 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
   
   .visually-hidden:not(:focus):not(:active) {
     position: absolute !important;
-    height: 1px;
-    width: 1px;
+    height: auto;
+    width: 100%;
     overflow: hidden;
     clip: rect(1px, 1px, 1px, 1px);
     white-space: nowrap;
@@ -212,6 +212,19 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
   
   .col-1-2 {
     width: calc((100% / 2) - 2rem);
+  }
+
+  @media (max-width: 767px) {
+    ul.row , .row {
+        flex-direction: column;
+        margin: 0;
+    }
+    .col- {
+        margin: 0 0 3rem 0;
+    }
+    .col-1-3, .col-1-2{
+        width: 100%;
+    }
   }
   
   /* Navbar
@@ -262,7 +275,11 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
     background-color: var(--color-primary);
     width: 100%;
   }
-  
+  @media (max-width: 767px) {
+    .navbar-menu {
+        display: none;
+    }
+  }
   /* Header
       ============================= */
   
@@ -396,9 +413,10 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
   }
   /* Section Latest news
       ============================= */
-  
-  .section-latest-news .row {
-    flex-direction: row-reverse;
+  @media (max-width: 767px) {
+    .section-latest-news .row {
+        flex-direction: column;
+    }
   }
   
   /* Section SERVICES
